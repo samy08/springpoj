@@ -19,7 +19,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		this.dataSource = dataSource;
 	}
 
-	@Override
+	
 	public void save(Employee employee) {
 		String query = "insert into Employee (id, name, role) values (?,?,?)";
 		Connection con = null;
@@ -46,7 +46,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		}
 	}
 
-	@Override
+
 	public Employee getById(int id) {
 		String query = "select name, role from Employee where id = ?";
 		Employee emp = null;
@@ -81,7 +81,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return emp;
 	}
 
-	@Override
+	
 	public void update(Employee employee) {
 		String query = "update Employee set name=?, role=? where id=?";
 		Connection con = null;
@@ -108,7 +108,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		}
 	}
 
-	@Override
+
 	public void deleteById(int id) {
 		String query = "delete from Employee where id=?";
 		Connection con = null;
@@ -133,7 +133,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		}
 	}
 
-	@Override
+	
 	public List<Employee> getAll() {
 		String query = "select id, name, role from Employee";
 		List<Employee> empList = new ArrayList<Employee>();

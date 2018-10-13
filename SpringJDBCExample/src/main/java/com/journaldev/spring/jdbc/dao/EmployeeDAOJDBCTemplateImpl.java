@@ -21,7 +21,7 @@ public class EmployeeDAOJDBCTemplateImpl implements EmployeeDAO {
 		this.dataSource = dataSource;
 	}
 	
-	@Override
+
 	public void save(Employee employee) {
 		String query = "insert into Employee (id, name, role) values (?,?,?)";
 		
@@ -36,7 +36,7 @@ public class EmployeeDAOJDBCTemplateImpl implements EmployeeDAO {
 		}else System.out.println("Employee save failed with id="+employee.getId());
 	}
 
-	@Override
+
 	public Employee getById(int id) {
 		String query = "select id, name, role from Employee where id = ?";
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
@@ -44,7 +44,7 @@ public class EmployeeDAOJDBCTemplateImpl implements EmployeeDAO {
 		//using RowMapper anonymous class, we can create a separate RowMapper for reuse
 		Employee emp = jdbcTemplate.queryForObject(query, new Object[]{id}, new RowMapper<Employee>(){
 
-			@Override
+		
 			public Employee mapRow(ResultSet rs, int rowNum)
 					throws SQLException {
 				Employee emp = new Employee();
@@ -57,7 +57,7 @@ public class EmployeeDAOJDBCTemplateImpl implements EmployeeDAO {
 		return emp;
 	}
 
-	@Override
+
 	public void update(Employee employee) {
 		String query = "update Employee set name=?, role=? where id=?";
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
@@ -69,7 +69,7 @@ public class EmployeeDAOJDBCTemplateImpl implements EmployeeDAO {
 		}else System.out.println("No Employee found with id="+employee.getId());
 	}
 
-	@Override
+
 	public void deleteById(int id) {
 
 		String query = "delete from Employee where id=?";
@@ -81,7 +81,6 @@ public class EmployeeDAOJDBCTemplateImpl implements EmployeeDAO {
 		}else System.out.println("No Employee found with id="+id);
 	}
 
-	@Override
 	public List<Employee> getAll() {
 		String query = "select id, name, role from Employee";
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
