@@ -17,7 +17,7 @@ public class SpringMain {
 		//Get the EmployeeDAO Bean
 		//EmployeeDAO employeeDAO = ctx.getBean("employeeDAO", EmployeeDAO.class);
 		//To use JdbcTemplate
-		EmployeeDAO employeeDAO = ctx.getBean("employeeDAOJDBCTemplate", EmployeeDAO.class);
+		EmployeeDAO employeeDAO = ctx.getBean("e", EmployeeDAO.class);
 		
 		//Run some tests for JDBC CRUD operations
 		Employee emp = new Employee();
